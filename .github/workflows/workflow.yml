@@ -1,38 +1,17 @@
-name: Flutter Web
+name: painter_test
+
 on:
   push:
-    branches:
-      - master
+    branches: master
+
 jobs:
   build:
-    name: Build Web
-    env:
-      my_secret: $
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: subosito/flutter-action@v1
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
-          baseHref: /simple_painter/
-          channel: 'dev'
-#      - run: flutter config --enable-web
-#      - run: flutter pub get
-#      - run: flutter build web --release
-        # 1. change path which exist lib/main.dart
-        #working-directory: .
-      #- run: 
-          # # 2. change path to [existed lib/main.dart path]/build/web
-          # cd flutter/build/web
-          # git init
-          # #  # 3. change your email
-          # git config --global user.email 1nheaven@naver.com
-          # # # 4. change your name
-          # git config --global user.name lastleaf1002
-          # git status
-          # # # 5. change your repository
-          # git remote add origin https://$@github.com/lastleaf1002/simple_painter
-          # git checkout -b gh-pages
-          # git add --all
-          # git commit -m "update"
-          # git push origin gh-pages -f
+          baseHref: /painter_test/
+          webRenderer: canvaskit
